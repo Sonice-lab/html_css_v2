@@ -1,0 +1,87 @@
+/* css 코드 */
+/* 1단계: 리셋 + 전역 스타일 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  width: 100%;
+}
+
+/* 2단계: 레이아웃 (큰 틀 배치) */
+header {
+  text-align: center;
+  /* 위 아래 40px, 좌우 20px */
+  padding: 40px 20px;
+  background-color: #6f4e37;
+  color: white;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.menu-grid {
+  display: flex;
+  gap: 20px;
+}
+
+/* 3단계: 컴포넌트 스타일 */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+
+  /* 세부조정 */
+  /* transform: 어떠한 변화를 0.2초에 걸쳐서 적용하라. */
+  transition: transform 0.9s;
+}
+
+.card img {
+  width: 100%;
+  /* img 기본값은 inline -> 텍스트 취급으로 보기 때문에 
+        자동으로 아래 3~4px 정도의 공백이 발생됨 */
+  /* block으로 변경하면 공백이 사라지며, card body에 딱 붙음 */
+  display: block;
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.price {
+  /* span 태그의 기본값은 inline으로 설정되어있음
+        그렇기때문에  margin-top 값이 무시됨
+        inline-block 영역은 옆에 붙으면서  margin-top도 동작함 */
+  display: inline-block;
+  margin-top: 10px;
+  color: #6f4e37;
+}
+/* 4단계: 세부 조정 */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+}
+
+/* 5단계: 반응형 처리 
+      규칙 1. viewport 설정이 되어있어야 함 
+      규칙 2. @media (화면사이즈 제약) {}
+      */
+@media (max-width: 768px) {
+  .menu-grid {
+    /* 가로 방향에서 세로 방향으로 화면 크기가 768px보다 작을 때 적용 */
+    flex-direction: column;
+  }
+
+  .card {
+    flex: none;
+    width: 100%;
+  }
+}
