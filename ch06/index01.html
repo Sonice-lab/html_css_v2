@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +12,13 @@
       }
       body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .content-wrapper {
+        flex: 1;
       }
 
       /* 패턴 1 */
@@ -20,12 +27,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 200px; /* 높이를 주어 정렬 공간 확보 */
+        background-color: #f3f4fa; /* 연한 배경색 추가 */
       }
       .box {
-        background-color: #e4c3e4;
+        background-color: #5a55d2; /* 보라/파란색 계열로 변경 */
+        color: white; /* 글자색 흰색으로 변경 */
         padding: 20px 40px;
         border-radius: 8px;
-        margin-top: 20px;
+        font-weight: bold;
+        font-size: 14px;
       }
       /* 패턴 2. */
       .demo-nav {
@@ -35,14 +46,16 @@
         padding: 0px 20px;
         height: 60px;
 
-        background-color: #1e293c;
+        background-color: #273346; /* 이미지와 유사한 네이비 컬러 */
         color: white;
-        margin: 20px 0;
+        font-size: 14px;
+        font-weight: bold;
       }
 
       .demo-nav a {
         text-decoration: none;
-        color: white;
+        color: #a0aec0; /* 메뉴 글자색을 약간 어두운 회색으로 변경 */
+        font-weight: normal;
         margin-left: 20px;
       }
 
@@ -52,27 +65,29 @@
         flex-wrap: wrap;
         gap: 20px;
         background-color: #f9fbfc;
-        padding: 20px;
-        margin-bottom: 20px;
+        padding: 40px 20px; /* 위아래 여백 확대 */
       }
 
       .card {
         flex: 1 1 200px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background-color: white; /* 카드 배경색 흰색 지정 */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
+        border: 1px solid #f1f5f9; /* 은은한 테두리 */
         padding: 30px;
         border-radius: 8px;
         text-align: center;
+        font-size: 14px;
       }
       /* 패턴 4 */
       .demo-sidebar-layout {
         display: flex;
-        min-height: 200px;
+        min-height: 250px;
         margin-bottom: 20px;
       }
 
       .sidebar {
         width: 200px;
-        background-color: #1e293c;
+        background-color: #273346; /* 네비게이션과 동일한 톤 */
         color: white;
         padding: 20px;
       }
@@ -117,12 +132,12 @@
       .demo-responsive {
         display: flex;
         gap: 20px;
-        padding: 20px;
+        padding: 40px 20px;
       }
       .col {
         flex: 1;
         background-color: aliceblue;
-        padding: 30px;
+        padding: 40px;
         border-radius: 8px;
         text-align: center;
       }
