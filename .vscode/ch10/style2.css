@@ -1,0 +1,47 @@
+/* css 변수: 색상 테마와 주요 치수 */
+:root {
+  --sp-black: #121212;
+  --sp-dark: #181818;
+  --sp-gray: #282828;
+  --sp-light: #b3b3b3;
+  --sp-green: #1db954;
+  --sp-white: #ffffff;
+
+  /* 플레이어 높이를 변수로 뺀다. 
+사이드바와 메인의 높이 계산에 세 번 쓰이므로, 
+숫자를 직접 적으면 하나만 고쳐도 레이아웃이 깨짐.
+*/
+  --player-height: 80px;
+}
+
+/* 값 초기화 */
+/* 1단계: 리셋/전역 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--sp-black);
+  color: var(--sp-white);
+  /* 문서 전체 스크롤을 막는다. */
+  overflow: hidden;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--sp-light);
+}
+
+/* (2~4단계 컴포넌트별 반복): 컴포넌트 - 사이드바 + 메인(독립 스크롤 생성) */
+/* 컴포넌트 - 프로필 레이아웃(2단 구조) */
+
+.app-layout {
+  display: flex;
+  /* 하단 플레이어 영역의 높이를 빼고 계산해야한다.
+  이 높이가 있어야 안에 콘텐츠들이 넘침을 판단할 수 있다. */
+  height: calc(100vh - var(--player-height));
+}
