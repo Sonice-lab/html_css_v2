@@ -45,3 +45,9 @@ a {
   이 높이가 있어야 안에 콘텐츠들이 넘침을 판단할 수 있다. */
   height: calc(100vh - var(--player-height));
 }
+
+.sidebar {
+  flex: 0 0 240px;
+  background-color: var(--sp-black);
+  padding: 20px;
+}
