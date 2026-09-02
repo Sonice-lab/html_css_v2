@@ -328,7 +328,8 @@ body {
 }
 
 .order-table td {
-  padding: 10px 18px; /* ★ 표 칸의 넉넉한 상하 여백을 원래대로 되돌립니다 */
+  padding: 12px 18px;
+  height: 52px;
   border-bottom: 1px solid var(--ad-line);
   vertical-align: middle; /* 텍스트와 뱃지가 세로 중앙에 오도록 맞춥니다 */
 }
@@ -341,11 +342,18 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 3px 10px; /* 뱃지의 여백을 자연스럽고 예쁜 비율로 맞춥니다 */
+  padding: 3px 10px; /* 위아래 2px, 좌우 8px로 날렵하게 */
+  line-height: 2;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
+
+td.badge {
+  text-align: center;
+  vertical-align: middle;
+}
+
 .badge.done {
   background: #dcfce7;
   color: #166534;
@@ -364,6 +372,7 @@ body {
 }
 
 .panel-row {
+  /* 상 우 하 좌 */
   padding: 0 24px 32px 24px;
 }
 .card-title,
@@ -381,16 +390,22 @@ body {
   font-size: 12px;
   font-weight: 600;
   color: var(--ad-sub);
+  margin-top: 12px;
 }
 
 .activity-list {
+  /* ul li로 메뉴 구성할 때 생성된 목록 앞 점을 사라지게 한다. */
+  /* 글머리 기호(점) 제거 */
   list-style: none;
-} /* 글머리 기호(점) 제거 */
+}
 .activity-item {
+  /*       상하 / 좌우 */
   padding: 12px 0;
   border-bottom: 1px solid var(--ad-line);
 }
 .activity-item:last-child {
+  /* 부모 요소의 모든 자식 중 
+  마지막 자식이 해당 클래스일 때만 작동 */
   border-bottom: none;
 }
 .activity-text p:first-child {
@@ -408,40 +423,50 @@ body {
    ========================================= */
 
 .nav-item {
-  transition: all 0.2s ease; /* 상태가 변할 때 0.2초 동안 부드럽게 넘어가도록 애니메이션을 설정합니다. */
+  /* 상태가 변할 때 0.5초 동안 부드럽게 넘어가도록 애니메이션을 설정합니다. */
+  transition: all 0.5s ease;
 }
 .nav-item:hover {
-  background-color: var(--ad-side-active); /* 마우스를 올리면 배경색이 바뀝니다. */
+  /* 마우스를 올리면 배경색이 바뀝니다. */
+  background-color: var(--ad-side-active);
   color: var(--ad-surface);
 }
 .nav-item.active {
-  background-color: var(--ad-side-active); /* 현재 활성화된 메뉴의 강조 색상입니다. */
+  /* 현재 활성화된 메뉴의 강조 색상입니다. */
+  background-color: var(--ad-side-active);
   color: var(--ad-surface);
   font-weight: 600;
 }
 
 .search {
-  transition: all 0.2s ease; /* 검색창 클릭 애니메이션 준비 */
+  /* 검색창 클릭 시 효과 */
+  transition: all 0.2s ease;
 }
 .search:focus {
-  background-color: var(--ad-surface); /* 클릭하면 배경이 흰색으로 밝아집니다. */
-  border-color: var(--ad-primary); /* 테두리에 보라색 메인 컬러가 켜집니다. */
+  /* 클릭하면 배경이 흰색으로 밝아집니다. */
+  background-color: var(--ad-surface);
+  /* 테두리에 보라색 메인 컬러가 켜집니다. */
+  border-color: var(--ad-primary);
 }
 
 .card,
 .stat-card {
-  transition: box-shadow 0.2s ease; /* 카드 애니메이션 준비 */
+  /* 마우스 커서를 올려놓으면 카드 뒤에 음영 효과 */
+  transition: box-shadow 0.2s ease;
 }
 .card:hover,
 .stat-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 마우스를 올리면 카드 뒤로 그림자가 생성됩니다. */
+  /* 마우스 커서를 올리면 카드 뒤로 그림자가 생성 효과 조정. */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .table-content tr {
-  transition: background-color 0.2s ease; /* 표 행(줄) 애니메이션 준비 */
+  /* 표 행(줄) 애니메이션 준비 */
+  transition: background-color 0.2s ease;
 }
 .table-content tr:hover {
-  background-color: var(--ad-bg); /* 마우스를 올린 줄에 아주 연한 배경색을 칠해줍니다. */
+  /* 마우스를 올린 줄에 아주 연한 배경색을 칠해주기. */
+  background-color: var(--ad-bg);
 }
 
 /* =========================================
@@ -450,18 +475,23 @@ body {
    ========================================= */
 
 @media (max-width: 768px) {
-  /* 화면 가로폭이 768px 이하(모바일, 태블릿)로 줄어들었을 때 작동하는 명령어들입니다. */
+  /* 화면 가로폭이 768px 이하(모바일, 태블릿)로 줄어들었을 때 
+  작동하는 명령어. */
 
   .page-layout {
-    flex-direction: column; /* 가로로 있던 사이드바와 메인을 위아래(세로)로 배치합니다. */
+    /* 가로로 있던 사이드바와 메인을 위아래(세로)로 배치 */
+    flex-direction: column;
   }
 
   .sidebar {
-    flex: auto; /* 고정되었던 240px 폭을 풀고 유연하게 바꿉니다. */
-    width: 100%; /* 모바일에서는 사이드바가 가로 100%를 꽉 채우도록 합니다. */
+    /* 고정되었던 240px 폭을 풀고 유연하게 바꿉니다. */
+    flex: auto;
+    /* 모바일에서는 사이드바가 가로 100%를 꽉 채우도록 함. */
+    width: 100%;
   }
 
   .panel-row {
-    flex-direction: column; /* 가로로 있던 차트와 활동내역을 위아래로 쌓습니다. */
+    /* 가로로 있던 차트와 활동내역을 위아래로 쌓기. */
+    flex-direction: column;
   }
 }
